@@ -5,8 +5,7 @@ Rails.application.routes.draw do
   resources :comments
   resources :answers
   resources :questions
-
-
+  resources :users,only: [:show,:edit,:update]
   get 'home/index'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
