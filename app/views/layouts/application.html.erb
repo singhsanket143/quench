@@ -24,7 +24,7 @@
 
 <%if user_signed_in?%>
     <%= link_to "Sign Out",destroy_user_session_path,method: :delete%>
-    <%=link_to current_user.email, current_user%>
+    <%=link_to(avatar_for(current_user,size: 35),current_user)%>
     <%end%>
 
 
