@@ -1,3 +1,5 @@
+
+
 <div class="question">
   <div class="userDetail">
     <%= question.user.email %>
@@ -7,8 +9,25 @@
     <br>
     <%if can? :destroy,question%>
 
-    <%= link_to "Delete", question, method: :delete, data: {confirm: "Are you sure?"}%>
+        <%= link_to "Delete", question, method: :delete, data: {confirm: "Are you sure?"}%>
     <%end%>
     <%= link_to 'Show', question ,params[id: question.id]%>
+    <%= link_to('Like', question_like_path(question), remote:true,method: :post ,class: "like" ) %>
+
+    <%= link_to('follow', question_follow_path(question), remote:true,method: :post) %>
   </div>
 </div>
+<script type="text/javascript">
+
+    function LikeUnLikeButton() {
+        $(".like").click(function (e) {
+            if ($(this).html() == "Like") {
+                $(this).html('Unlike');
+            }
+            else {
+                $(this).html('Like');
+            }
+        });
+    }
+    LikeUnLikeButton();
+</script>

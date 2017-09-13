@@ -9,5 +9,7 @@ class HomeController < ApplicationController
         format.js{  }
       end
   end
-
+    def users
+      @users=User.all
+    end
 end

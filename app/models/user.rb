@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
   validates :phno, length: {is: 10}
   validates :name, presence: true
   mount_uploader :avatar, AvatarUploader
+  acts_as_followable
+  acts_as_liker
+  acts_as_follower
   def feed
     Question.includes(:user).order(created_at: :desc)
   end
