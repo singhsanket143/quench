@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   enum role: {guest: 0, member: 1, moderator: 2, admin: 3}
   validates :phno, length: {is: 10}
   validates :name, presence: true
-
+  mount_uploader :avatar, AvatarUploader
   def feed
     Question.includes(:user).order(created_at: :desc)
   end
