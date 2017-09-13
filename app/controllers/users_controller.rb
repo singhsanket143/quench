@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   before_action :set_user
   def show
     @user=User.find(params[:id])
+    @question=Question.where(:user_id => current_user.id)
+    # byebug
   end
 
   def edit

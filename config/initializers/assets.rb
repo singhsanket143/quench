@@ -10,6 +10,9 @@ Rails.application.config.assets.precompile += %w( loginsignup.js )
 
 Rails.application.config.assets.precompile += %w( navbar.css )
 Rails.application.config.assets.precompile += %w( navbar.js )
+
+Rails.application.config.assets.precompile += %w( profilepage.css )
+Rails.application.config.assets.precompile += %w( profilepage.js )
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
