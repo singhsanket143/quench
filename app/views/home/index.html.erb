@@ -33,7 +33,7 @@ head>
 
 <div class="container">
   <div id="questions">
-    <% @feed.each do |question| %>
+    <% current_user.feed.each do |question| %>
         <div class="row">
 
           <div class="col-xs-12">

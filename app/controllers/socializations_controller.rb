@@ -11,8 +11,17 @@
   end
 
   def like
+    @question=Question.find(params[:question_id])
+    like=Like.where(likeable_type: "Question",liker_id: current_user.id).first
+    if like
+      current_user.toggle_like!(@socializable)
+      @is_liked=false
+    else
+      current_user.toggle_like!(@socializable)
+      @is_liked=true
+    end
 
-    current_user.toggle_like!(@socializable)
+
     respond_to do |format|
       format.js {}
     end

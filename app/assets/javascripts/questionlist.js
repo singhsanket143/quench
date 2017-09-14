@@ -13,7 +13,7 @@ function bg_image_replace(image, parent){
 
 /* Review */
 $( '.card-image' ).mouseover(function(){
-    $('.card-modal').fadeIn(100).toggleClass('active');
+    $('#hov_<%= @question.id%>').fadeIn(100).toggleClass('active');
 }).mouseout(function(){
-    $('.card-modal').fadeOut(100).toggleClass('active');
+    $('#hov_<%= @question.id%>').fadeOut(100).toggleClass('active');
 });
