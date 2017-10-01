@@ -113,7 +113,7 @@ div#questions div.row div.question div.userDetail div.card.ques div.supporting_t
   color:#0091ea;
 }
 div#questions div.row div.question div.userDetail div.card.ques div.supporting_text.text.small div.row div.card-action a{
- color:#949599; 
+ color:#949599;
 }
 div#questions div.row div.question div.userDetail div.card.ques div.supporting_text.text.small div.row div.card-action a:hover{
    color:#0091ea;
@@ -162,18 +162,23 @@ div#questions div.row div.question div.userDetail div.card.ques div.supporting_t
           <h3 style=" font-family: 'Cantarell, sans-serif';font-size: 22px;font-weight: bold;"><%= question.title %></h3>
           <p style="font-family: 'Josefin Slab', serif;"><%= question.content %></p>
 
-        
-         
+
+
 
 <p style=" font-family: 'Capriola, sans-serif';font-size: 14px;">Tags:  <%= raw question.tag_list.map { |t| link_to t , tag_path(t) }.join(', ') %></p>
 
 
 
-         
+
           <div class="row">
             <div class="card-action">
               <%= link_to ('<i class="material-icons">comment</i>').html_safe, question ,params[id: question.id]%>
-              <%= link_to('follow', question_follow_path(question), remote:true,method: :post) %>
+
+              <% if question.follow_string(current_user.id,question.id)== true%>
+                <%= link_to('Unfollow', question_follow_path(question), remote:true,method: :post,id: "follow_#{question.id}") %>
+              <%else%>
+                  <%= link_to('follow', question_follow_path(question), remote:true,method: :post,id: "follow_#{question.id}") %>
+              <%end%>
               <div class="right">
                 <% if question.like_string(current_user.id,question.id)== true%>
                     <%= link_to ('<i class="material-icons right" >favorite</i>').html_safe, question_like_path(question), remote:true,method: :post ,id: "like_#{question.id}" %>
@@ -195,11 +200,3 @@ div#questions div.row div.question div.userDetail div.card.ques div.supporting_t
     <!-- </div> -->
   </div>
 </div>
-
-
-
-
-
-
-
- 

@@ -10,6 +10,22 @@
     end
   end
 
+  def followQuestion
+    @question=Question.find(params[:question_id])
+    follow=Follow.where(followable_type: "Question",follower_id: current_user.id,followable_id: @question.id).first
+
+    if follow
+      current_user.toggle_follow!(@socializable)
+      @is_followed=false
+    else
+    current_user.toggle_follow!(@socializable)
+      @is_followed=true
+    end
+    respond_to do |format|
+      format.js {}
+    end
+  end
+
   def like
     @question=Question.find(params[:question_id])
     like=Like.where(likeable_type: "Question",liker_id: current_user.id,likeable_id: @question.id).first

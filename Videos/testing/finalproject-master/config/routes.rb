@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   resources :questions do
     post 'like',   to: 'socializations#like'
-    post 'follow', to: 'socializations#follow'
+    post 'follow', to: 'socializations#followQuestion'
   end
   resources :answers do
     post 'like',   to: 'socializations#likeAnswer'
