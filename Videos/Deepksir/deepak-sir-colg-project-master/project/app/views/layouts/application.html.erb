@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Project</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+    <script src="https://use.fontawesome.com/80c624d313.js"></script>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" >
+  <script src="https://use.fontawesome.com/4f2a04482d.js"></script>
+  
+</head>
+<body>
+  <header>
+    <div class="row">
+      <div class="col l6 m6 s6">
+        <img src="/gallery/gurunanak.png" alt="logo">
+      </div>
+      <div class="col l6 m6 s6">
+        <h3>International Conference on Innovative Computing and Communication(ICICC-2018)</h3>
+        <h6>Organised by : Guru Nanak Institute of Management
+5th-6th May,2018</h6>
+      </div>
+    </div>
+
+
+
+    <div class="nav-wrapper">
+      <nav>
+        <%= link_to "Home", url_for(controller: 'home', action: 'index') %>
+        <!-- <%= link_to "About", url_for(controller: 'home', action: 'index') %> -->
+        <a class="dropdown-button" data-activates="dropdown2" data-hover="true">About</a>
+
+        <!-- <%= link_to "Papers", url_for(controller: 'home', action: 'index') %> -->
+        <a class="dropdown-button" data-activates="dropdown3" data-hover="true">Papers</a>
+
+        <%= link_to "Registration", url_for(controller: 'home', action: 'registration') %>
+        <%= link_to "Sponsorship", url_for(controller: 'home', action: 'sponsorship') %>
+        <%= link_to "Publication", url_for(controller: 'home', action: 'publication') %>
+        <!-- <%= link_to "Committee", url_for(controller: 'home', action: 'index') %> -->
+        <a class="dropdown-button" data-activates="dropdown4" data-hover="true">Committee</a>
+        <!-- <%= link_to "Explore", url_for(controller: 'home', action: 'index') %> -->
+        <a class="dropdown-button" data-activates="dropdown1" data-hover="true">Explore</a>
+
+      </nav>
+    </div>
+
+    <ul id="dropdown4" class="dropdown-content">
+      <li> <%= link_to "Steering Committee", url_for(controller: 'home', action: 'steeringcommittee') %></li>
+      <li class="divider"></li>
+      <li> <%= link_to "Technical Program Committee", url_for(controller: 'home', action: 'technicalprogramcommittee') %></li>
+      <li class="divider"></li>
+      <li> <%= link_to "Advisory Committee", url_for(controller: 'home', action: 'advisorycommittee') %></li>
+    </ul>
+
+    <ul id="dropdown1" class="dropdown-content">
+      <li> <%= link_to "Important Dates", url_for(controller: 'home', action: 'important_dates') %></li>
+      <li class="divider"></li>
+      <li> <%= link_to "Conference Venue", url_for(controller: 'home', action: 'conference_venue') %></li>
+      <li class="divider"></li>
+      <li> <%= link_to "Contact Us", url_for(controller: 'home', action: 'contact_us') %></li>
+    </ul>
+    <ul id="dropdown2" class="dropdown-content">
+      <li> <%= link_to "About Institute", url_for(controller: 'home', action: 'about_institute') %></li>
+      <li class="divider"></li>
+      <li> <%= link_to "About IRD India", url_for(controller: 'home', action: 'about_irdindia') %></li>
+      <li class="divider"></li>
+      <li> <%= link_to "About Universal Innovators", url_for(controller: 'home', action: 'about_universal_innovators') %></li>
+    </ul>
+
+    <ul id="dropdown3" class="dropdown-content">
+      <li> <%= link_to "Call For Papers", url_for(controller: 'home', action: 'call_for_papers') %></li>
+      <li class="divider"></li>
+      <li> <%= link_to "Call For Special Session", url_for(controller: 'home', action: 'special_submission') %></li>
+      <li class="divider"></li>
+      <li> <%= link_to "Paper Submission", url_for(controller: 'home', action: 'paper_submission') %></li>
+    </ul>
+
+
+
+  </header>
+
+
+  <%= yield %>
+  <footer class="page-footer">
+
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Contact Us</h5>
+          <p class="grey-text text-lighten-4">Contact Us
+              For any information or queries regarding the conference, feel free to call or email us on the below mentioned details
+              <br>
+              Phone : +91-889-599-5279
+              <br>
+              E-mail : icicc.conf@gmail.com
+
+            </p>
+
+
+        </div>
+        <div class="col l6 s12" id="social">
+
+          <h5 class="white-text">Get Connected With Us</h5>
+
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-youtube"></a>
+            <a href="#" class="fa fa-instagram"></a>
+            <a href="#" class="fa fa-google"></a>
+        </div>
+    
+      </div>
+
+    <div class="footer-copyright">
+      <div class="container">
+        copyright © International Conference on Innovative Computing and Communication all rights reserved.
+
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

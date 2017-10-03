@@ -1,0 +1,98 @@
+<section class="registration">
+  <div class="container">
+    <div class="row">
+      <div class="col m12 s12 l8">
+        <div class="card-panel teal">
+          <span class="white-text">
+            <b>Author/Co-Author Registration Fee Includes: Participation in the technical program Lunch Banquet Badge Conference Accessories CD of Proceedings Coffee breaks Welcome reception</b>
+            <hr />
+            Once Your paper is accepted the registration process begins. you have to complete the following four steps. Step1 - Registration Fee It is mandatory for at least one author of an accepted paper to register in order for the paper to appear in the proceedings and included in the Technical Program. If an author has got more than one accepted papers, there will be discount on additional papers registration. Fee includes listing the papers online in International Journal, The CD media of the proceedings and publication in various issues of Journals, Lunch, Morning and Evening Snacks. Registration Fees.<br><br />
+            <a class="waves-effect waves-light btn">Download Registration Form <i class="fa fa-download" aria-hidden="true"></i>
+            </a>
+
+
+            <br>
+            <br />
+            <b>Author/Co-Author Registration Fee Includes:</b>
+            <hr />
+            <ul>
+              <li>Welcome reception</li>
+              <li>Badge</li>
+              <li>Conference Accessories</li>
+              <li>Participation in the technical program</li>
+              <li>Coffee breaks</li>
+              <li>Lunch</li>
+              <li>Banquet</li>
+            </ul>
+
+
+
+
+          </span>
+        </div>
+      </div>
+      <div class="col m12 s12 l4">
+        <div class="card-panel teal">
+          <span class="white-text">
+            <b>Important Dates</b>
+            <hr />
+            <% @important_dates.each do |impdate| %>
+            <b><%= impdate.title %></b>
+            <br>
+            <%= impdate.date.to_date.to_formatted_s(:long_ordinal) %>
+            <br><hr />
+
+            <% end %>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col m12 s12 l12">
+
+        <h5><b>Early Bird Round</b></h5>
+        <br />
+        <table class="responsive-table centered">
+          <thead>
+            <tr>
+              <th><b>Category</b></th>
+              <th><b>Registration Fee</b></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Research Scholar/Students</td>
+              <td>INR 8,000</td>
+            </tr>
+            <tr>
+              <td>Academician</td>
+              <td>INR 8,500</td>
+            </tr>
+            <tr>
+              <td>Industrial Participant</td>
+              <td>INR 9,000</td>
+            </tr>
+            <tr>
+              <td>Co-Author Attending</td>
+              <td>INR 2,500</td>
+            </tr>
+            <tr>
+              <td>Foreign Delegates</td>
+              <td>USD 200</td>
+            </tr>
+            <tr>
+              <td>Foreign Student</td>
+              <td>USD 150</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+      </div>
+
+    </div>
+
+
+  </div>
+</section>

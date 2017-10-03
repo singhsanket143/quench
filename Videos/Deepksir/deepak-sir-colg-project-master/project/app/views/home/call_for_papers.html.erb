@@ -1,0 +1,42 @@
+
+<section class="call_for_papers">
+   <div class="container">
+     <div class="row">
+       <div class="col m12 s12 l8">
+
+                 <div class="card-panel teal">
+                   <span class="white-text">
+                     <b>ICICC-2018 will be an amalgamation of three different Tracks organized parallel to each other, as listed below:</b>
+                     <hr />
+                          <% @call_for_papers.each do|paper| %>
+                                <%= paper.title%><br>
+                                    <% paper.getallsubheading.each do |subheading|%>
+                                          <%= subheading.content %><br>
+                                    <% end %><br>
+                          <% end %>
+
+                   </span>
+                 </div>
+
+
+       </div>
+       <div class="col m12 s12 l4">
+         <div class="card-panel teal">
+           <span class="white-text">
+             <b>Important Dates</b>
+             <hr />
+          <% @important_dates.each do |impdate| %>
+              <b><%= impdate.title %></b>
+              <br>
+              <%= impdate.date.to_date.to_formatted_s(:long_ordinal) %>
+              <br><hr />
+
+          <% end %>
+        </span>
+      </div>
+      </div>
+  </div>
+
+
+</div>
+</section>

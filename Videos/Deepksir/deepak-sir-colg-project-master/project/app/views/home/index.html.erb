@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Project</title>
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css'>
+
+
+</head>
+<style type="text/css">
+.container {
+  margin: 0 auto;
+  max-width: 1390px;
+  width: 90%;
+}
+</style>
+<body>
+  <div class="parallax-container" style="z-index: -10;">
+    <div class="parallax">
+      <img src="https://s-media-cache-ak0.pinimg.com/originals/09/73/3c/09733cf4fd9280abb95c448d05dd07b6.jpg"></div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col m12 s12 l3">
+          <div class="card-panel teal">
+            <span class="white-text">
+              <h5>News Update</h5><hr>
+
+              <% @newsupdate.each do |newsupdate| %>
+              <b><%= newsupdate.news %></b>
+              <br>
+
+              <% end %>
+            </span>
+          </div>
+        </div>
+
+        <div class="col m12 s12 l5">
+          <div class="card-panel teal">
+            <span class="white-text">
+              <h4 >About Conference</h4>
+              <hr>
+              <%= @aboutconference %>
+            </span>
+          </div>
+        </div>
+        <div class="col m12 s12 l4">
+          <div class="card-panel teal">
+            <span class="white-text">
+              <h5>Important Dates</h5><hr>
+
+              <% @important_dates.each do |impdate| %>
+              <b><%= impdate.title %></b>
+              <br>
+              <%= impdate.date.to_date.to_formatted_s(:long_ordinal) %>
+              <br><hr />
+
+              <% end %>
+            </span>
+          </div>
+        </div>
+
+
+
+
+      </div>
+      <div class="row">
+        <% @sponsors.each do |sponsor| %>
+        <!-- <div class="col s12 m12 l12"> -->
+        <%= render 'sponsor' , sponsor: sponsor %>
+        <!-- </div> -->
+        <% end %>
+      </div>
+
+      <div class="row">
+
+        <div class="col m12 s12 l6">
+          <div class="card-panel teal">
+            <span class="white-text">
+              <h5>Paper Submission</h5><hr>
+              <% @papersubmission.each do |papersubmission| %>
+              <div class="card">
+                <div class="card-image">
+                  <img src="<%="/PaperSubmission/" + papersubmission.url%>" class="responsive-img activator">
+                </div>
+
+              </div>
+
+              <% end %>
+            </span>
+          </div>
+
+        </div>
+
+        <div class="col m12 s12 l6">
+          <div class="card-panel teal">
+            <span class="white-text">
+              <h5>Tourism Selection</h5><hr>
+              <div class="card">
+                <div class="card-image">
+                  <img src="/akshardham.jpg" class="responsive-img activator">
+                </div>
+
+              </div>
+
+            </span>
+          </div>
+
+        </div>
+      </div>
+
+
+
+      <div class="row">
+
+
+        
+        <div class="col m12 s12 l4">
+
+          <div class="card-panel teal">
+            <span class="white-text">
+              <h5>Publish Partner</h5><hr>
+              <% @publishpartner.each do |publishpartner| %>
+              <div class="card">
+                <div class="card-image">
+                  <img src="<%="/PublishPartner/" + publishpartner.image%>" class="responsive-img activator">
+                </div>
+                <div class="card-content">
+                  <span class="card-title activator grey-text text-darken-1"><a href="<%= publishpartner.url %>"><%= publishpartner.content %></a></span>
+                </div>
+
+              </div>
+
+              <% end %>
+            </span>
+          </div>
+        </div>
+        <div class="col m12 s12 l3">
+          <div class="card-panel teal">
+            <span class="white-text">
+              <h5>Recent Visitors</h5><hr>
+              <div class="card">
+                <div class="card-image">
+                  <img src="/map1.png" class="responsive-img activator">
+                </div>
+              </div>
+
+            </span>
+          </div>
+        </div>
+        <div class="col m12 s12 l4">
+
+          <div class="card-panel teal">
+            <span class="white-text">
+              <h5>KeyNote Speaker</h5><hr>
+              <% @keynotespeaker.each do |keynotespeaker| %>
+
+              <div class="card">
+                <div class="card-image">
+                  <img src="<%="/keynotespeaker/" + keynotespeaker.image%>" class="responsive-img activator">
+                </div>
+                <div class="card-content">
+                  <span class="card-title activator grey-text text-darken-1"><a href="<%= keynotespeaker.url %>"><%= keynotespeaker.caption %></a></span>
+                </div>
+
+              </div>
+              <% end %>
+            </span>
+          </div>
+
+
+
+
+        </div>
+
+      </div>
+
+
+      <div class="row">
+
+        <div class="col m12 s12 l12">
+          <div class="carousel">
+            <% @photogallery.each do |photo| %>
+            <a class="carousel-item" ><img src="<%="/gallery/" + photo.url%>"></a>
+            <% end %>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+
+  </body>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js'></script>
+  <script type="text/javascript">
+  $(document).ready(function () {
+    $('.parallax').parallax();
+  });
+
+
+  </script>

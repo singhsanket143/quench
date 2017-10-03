@@ -1,0 +1,153 @@
+<%if @response==true %>
+<%session[:response]=false%>
+<script type="text/javascript">
+noty({
+  text: '',
+  type: 'success',
+  layout: "top",
+  template: '<div><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>Thanks for responding!</div><div>I will get back to you as soon as I can</div>',
+  animation: {
+        open: 'animated bounceInDown', // Animate.css class names
+        close: 'animated bounceOutUp' // Animate.css class names
+    }
+}
+);
+
+</script>
+<%end%>
+<%if @response=="empty" %>
+<%session[:response]=false%>
+<script type="text/javascript">
+console.log("inside fail callback");
+noty({
+  text: 'fields marked with * are mandatory',
+  type: 'error',
+  animation: {
+        open: 'animated bounceInRight', // Animate.css class names
+        close: 'animated bounceOutRight' // Animate.css class names
+    }
+  }
+);
+
+</script>
+<%end%>
+<section class="special_submission">
+  <div class="container">
+    <div class="row">
+      <div class="col m12 s12 l8">
+
+        <div class="card-panel teal">
+          <span class="white-text">
+            <b>Call For Special Session</b>
+            <hr />
+            Collaborative efforts lead to substantial accomplishments, with this viewpoint, ICICC-2018 is inviting eminent academicians, scientists, researchers, industrialists, technocrats, government representatives, social visionaries and experts from all strata of society to work together for more meaningful and professional outcome. The ICICC team plans to hold special sessions on various areas of expertise, in any of the tracks based on related theme. These Special Sessions will be chaired by experts from different fields. The presentation of the papers under such Special Sessions will be scheduled at the venue of the conference, on any of the three days (pre-intimated) during the conference. The shortlisted papers will be accepted for presentation and publication in the Soft Copy of pre-Conference proceedings, which will be published on the Conference Website.
+            Important for conducting special session-<br>
+
+            1. The maximum number of session chair(s) allowed will be two.<br>
+            2. The Special session must be a new topic oriented and must be Conference theme /related theme.
+            <br>        3. A special session must target a particular audience who are probable to submit for the special session. Insufficient number of submissions will lead to drop of the special sessions but the registered articles under the sessions will be considered as regular articles and will be published in the proceedings.
+            <br>      4. All the submitted papers must go through a peer double blinded review process.
+            <br>    5. All the accepted papers should not have plagiarism more than 15%.
+            <br>    6. The acceptance rate should not be more than 30%.
+            <br />    7. Each special session will be awarded one best paper award. .
+
+
+          </span>
+        </div>
+
+
+
+
+      </div>
+      <div class="col m12 s12 l4">
+        <div class="card-panel teal">
+          <span class="white-text">
+            <b>Important Dates</b>
+            <hr />
+            <% @important_dates.each do |impdate| %>
+            <b><%= impdate.title %></b>
+            <br>
+            <%= impdate.date.to_date.to_formatted_s(:long_ordinal) %>
+            <br><hr />
+
+            <% end %>
+          </span>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="row">
+
+      <div class="col m12 s12 l12">
+
+
+
+        <%=form_tag '/home/special_submission/post', method: :POST, :enctype =>"multipart/form-data"   do%>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <%=label_tag :name,"Guest Editor(s)*"%>
+          <%= text_field_tag :name,nil,class: "validate", id: "icon_prefix"%>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">email</i>
+          <%= email_field_tag :email,nil,class: "validate", id: "icon_prefix"%>
+          <%=label_tag :email,"email*"%>
+
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">phone</i>
+          <%= number_field_tag :number,nil,class: "validate", id: "icon_prefix"%>
+          <%=label_tag :number,"Phone Number*"%>
+
+        </div>
+
+        <div class="input-field col s12">
+          <%=label_tag :introduction,"introduction*"%>
+          <%= text_area_tag :introduction,nil, id: "textarea1",class: "materialize-textarea"%>
+
+        </div>
+
+        <div class="input-field col s12">
+          <%=label_tag :objective,"objective and significance of special session*"%>
+          <%= text_area_tag :objective,nil, id: "textarea1",class: "materialize-textarea"%>
+
+        </div>
+
+        <div class="input-field col s6">
+
+          <%= number_field_tag :paper_count,nil,class: "validate", id: "icon_prefix"%>
+          <%=label_tag :number,"Expected number of papers*"%>
+
+        </div>
+
+        <div class="file-field input-field col s12">
+          <div class="btn">
+            <span>Cv of Guest Editors</span>
+            <%=file_field_tag :file, accept: 'application/pdf'%>
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+
+        <div class="input-field col s6">
+          <%=button_tag(type: "submit", class: "btn waves-effect waves-light") do%>
+          Send
+          <%end%>
+        </div>
+        <div class="input-field col s6">
+          <a class="waves-effect waves-light btn" id="reset">Reset</a>
+
+        </div>
+
+
+        <%end%>
+
+      </div>
+
+
+    </div>
+  </div>
+</section>
