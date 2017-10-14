@@ -1,3 +1,0 @@
-<% @answerfeed.each do |answer| %>
-$('#answers').append("<%= escape_javascript (render 'questions/answer', answer: answer,question_id: @question.id) %>");
-<% end %>
